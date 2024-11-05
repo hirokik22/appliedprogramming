@@ -1,0 +1,34 @@
+<form [formGroup]="studentFormGroup">
+   <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput type="text" [formControl]="firstName">
+   </mat-form-field><br />
+   <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input matInput type="text" [formControl]="lastName">
+   </mat-form-field><br />
+   <mat-form-field>
+      <mat-label>Study Program</mat-label>
+      <input matInput type="text" [formControl]="studyProgram">
+   </mat-form-field><br />
+   <!-- <mat-form-field>
+      <mat-label>DOB</mat-label>
+      <input matInput type="text" [formControl]="dob">
+   </mat-form-field><br /> -->
+   <mat-form-field>
+      <mat-label>DOB</mat-label>
+      <input matInput [matDatepicker]="picker" [formControl]="dob">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+   </mat-form-field><br/>
+
+   <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="text" [formControl]="email">
+   </mat-form-field><br />
+   <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input matInput type="text" [formControl]="phone">
+   </mat-form-field><br />
+   <button [disabled]="!this.studentFormGroup.valid" mat-raised-button (click)="addStudent()">Add</button>
+</form>

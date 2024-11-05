@@ -1,0 +1,36 @@
+<p>edit-student {{id}} works!</p>
+@if (student) {
+<form #formEditStudent="ngForm">
+<div>
+   id: <span>{{student.id}}</span>
+</div>
+<div>
+   First name: <input type="text" [(ngModel)]="student.firstName" required #firstName="ngModel" name="firstName">
+   @if (firstName.invalid) {
+      <span style="background-color: red;">First name must be provided</span>
+   }
+</div>
+<div>
+   Last name: <input type="text" [(ngModel)]="student.lastName" name="lastName">
+</div>
+<div>
+   Study Program: <input type="text" [(ngModel)]="student.studyProgramId" required pattern="\d+" #studyProgram="ngModel" name="studyProgramId">
+   
+   @if(studyProgram.errors?.['required']) {
+      <span style="background-color: red;">Study program must be provided</span>
+   }
+   @if(studyProgram.errors?.['pattern']) {
+      <span style="background-color: red;">Only digits allowed</span>
+   }
+
+</div>
+<div>
+   DOB: <input type="text" [(ngModel)]="student.dob" name="dob">
+</div>
+</form>
+@if (formEditStudent.valid) {
+<button (click)="updateStudent()">Update</button>
+}
+} @else {
+   Loading....
+}

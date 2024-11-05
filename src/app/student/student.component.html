@@ -1,0 +1,14 @@
+<div>
+	<b>id:</b><span style="background-color: red;">{{student.id}}</span>
+</div>
+<div>
+	<b>First name:</b><span>{{student.firstName}}</span>
+</div>
+<div>
+	<b>Last name:</b><span>{{student.lastName}}</span>
+</div>
+<div>
+	<b>Dob:</b><span>{{student.dob | date:'dd-MM-yyyy'}}</span>
+</div>
+<div><button (click)="deleteStudent()">Delete</button></div>
+<div><button (click)="editStudent(student.id)">Edit</button></div>
